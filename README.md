@@ -101,19 +101,18 @@ We ignore:
 
 ## 👥 Authors
 
-Kaustubh Gothankar (C)
-Jai
-Anirudh Sahijwani 
-Prakriti Chaddha 
-Avantika Nair 
-Jyotirmoyee Paul 
+Kaustubh Gothankar (C),
+Jai,
+Anirudh Sahijwani ,
+Prakriti Chaddha ,
+Avantika Nair ,
+Jyotirmoyee Paul .
 ---
 
 ## 📄 References
 
 * [Kaggle Historic Art Dataset](https://www.kaggle.com/datasets/ansonnnnn/historic-art)
 * [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), [Scikit-learn](https://scikit-learn.org/), [Matplotlib](https://matplotlib.org/)
-* Course/project materials, mentors, and teaching assistants
 
 ---
 
