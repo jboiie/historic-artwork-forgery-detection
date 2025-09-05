@@ -20,7 +20,6 @@ We also explore GAN-based approaches to detect suspicious or potentially manipul
 - **Core attributes:** artist, title, period, nationality, base, image_path.
 
 > **Note:** Due to storage limits, images are **not included** in this repository—please download them from Kaggle.
-
 ---
 
 ## 📊 Exploratory Data Analysis (EDA)
