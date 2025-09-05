@@ -121,3 +121,6 @@ Jyotirmoyee Paul .
 For questions or collaboration, open an issue or email \ jai19kharb@gmail.com
 
 
+![example-image](images/streamlit-ui-test.png)
+
+![example-image](images/cnn-report.png)
