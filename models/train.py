@@ -6,7 +6,7 @@ from sklearn.metrics import classification_report, accuracy_score
 import joblib  # for saving the model
 
 # Load CSV file
-df = pd.read_csv('merged_artwork_metadata.csv')
+df = pd.read_csv('data/merged_artwork_metadata.csv')
 
 print(df.head())
 print("Columns:", df.columns.tolist())

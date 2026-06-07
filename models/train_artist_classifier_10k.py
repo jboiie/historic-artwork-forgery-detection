@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 
 # --- 1. Load your mapped DataFrame ---
-df = pd.read_csv('complete/mapped.csv')
+df = pd.read_csv('data/mapped.csv')
 
 # --- 2. Use the first 10,000 images ---
 df = df.iloc[:10000].reset_index(drop=True)
