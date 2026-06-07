@@ -46,20 +46,17 @@ pip install -r requirements.txt
 
 ---
 
-## Step 4 — Download the dataset (Manual)
+## Step 4 — Download the dataset
 
-1. Go to https://www.kaggle.com/datasets/ansonnnnn/historic-art
-2. Download the dataset ZIP (requires a free Kaggle account)
-3. Place the ZIP at the project root as `historic-art.zip`
-4. Run the extraction script:
+We have provided a script to download the dataset using the `kagglehub` library.
 
 ```bash
-python utils/extract_dataset.py
+pip install kagglehub
+python download_dataset.py
 ```
 
-This extracts ~2000 sample images to `images/sample/` and the CSV metadata files to `data/`.
+This will download the entire Kaggle dataset (~30GB full, or just the image subset) and copy the images to `data/historic-art/complete/artwork/` and metadata CSVs to `data/historic-art/complete/`.
 
-> For the **full dataset** (45k+ images), manually extract all images from the ZIP into `images/sample/`.
 
 ---
 

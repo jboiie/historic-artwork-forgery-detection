@@ -17,8 +17,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # ====== CONFIG ======
-IMAGE_FOLDER = "images/sample"
-CSV_PATH = "data/final dataset.csv"
+IMAGE_FOLDER = "data/historic-art/complete/artwork"
+CSV_PATH = "data/mapped.csv"
 IMAGE_SIZE = 224
 BATCH_SIZE = 16
 NUM_EPOCHS = 5

@@ -10,7 +10,7 @@ import os
 # ==== CONFIG ====
 MODEL_PATH = "models/best_artist_classifier_cnn.pth"
 ENCODER_PATH = "models/label_encoder.pkl"
-ARTIST_CSV_PATH = "data/final dataset.csv"
+ARTIST_CSV_PATH = "data/mapped.csv"
 IMAGE_SIZE = 224
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 

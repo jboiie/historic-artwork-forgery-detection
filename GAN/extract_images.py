@@ -15,4 +15,4 @@ def sample_images(source_folder, output_folder, num_images=4000):
     print(f"Copied {len(selected_images)} images.")
 
 if __name__ == "__main__":
-    sample_images("images/sample", "data/GAN-data_processed", 4001)
+    sample_images("data/historic-art/complete/artwork", "data/GAN-data_processed", 4001)
