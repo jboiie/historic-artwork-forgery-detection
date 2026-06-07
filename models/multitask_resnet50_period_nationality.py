@@ -1,12 +1,13 @@
 import pandas as pd
 import torch
+import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from torchvision import models, transforms
 from PIL import Image
 import os
 # 1. Load your data
 
-df = pd.read_csv('./merged_artwork_metadata.csv')
+df = pd.read_csv('data/merged_artwork_metadata.csv')
 
 
 # Filter to only keep rows where the image file exists
