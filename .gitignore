@@ -6,6 +6,7 @@
 *.h5
 *.pkl
 *.pt
+data/historic-art/
 
 # Ignore OS and Python cache files
 __pycache__/

@@ -1,11 +1,11 @@
 import pandas as pd
 
-# Load the metadata CSVs
-artwork_df = pd.read_csv('data/artwork_dataset.csv')
-info_df = pd.read_csv('data/info_dataset.csv')
+# Load the metadata CSVs (from downloaded Kaggle dataset)
+artwork_df = pd.read_csv('data/historic-art/complete/artwork_dataset.csv')
+info_df = pd.read_csv('data/historic-art/complete/info_dataset.csv')
 
-# Set the correct image directory path
-image_dir = 'images/sample'  # Adjust this path as needed
+# Image directory inside the downloaded dataset
+image_dir = 'data/historic-art/complete/artwork'  # 45,574 JPG images named by ID
 
 # Display column names and preview the data
 print("Artwork columns:", artwork_df.columns.tolist())
@@ -52,5 +52,7 @@ print(clean_df['artist'].value_counts().head(20))  # Show top 20 artists
 
 # Save the merged DataFrame to a CSV file for inspection/sharing
 merged_df.to_csv('data/merged_artwork_metadata.csv', index=False)
+artwork_df.to_csv('data/mapped.csv', index=False)  # also save as mapped.csv for EDA scripts
 
 print("Merged DataFrame saved as 'data/merged_artwork_metadata.csv'")
+print("Also saved as 'data/mapped.csv' for EDA and training scripts")
