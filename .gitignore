@@ -1,20 +1,44 @@
 
-
 # Ignore big data files
 *.zip
 *.pth
 *.joblib
-
+*.h5
+*.pkl
+*.pt
 
 # Ignore OS and Python cache files
 __pycache__/
+*.pyc
+*.pyo
 .DS_Store
 
 # Ignore presentations and office docs
 *.pptx
 *.ppt
 *.docx
+*.pdf
 
 # VSCode & system files
 .vscode/
 Thumbs.db
+
+# Personal / course material folders (kept locally, not tracked)
+gaip/
+GAIP-ed/
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Output files generated during training
+cnn_classification_report.txt
+confusion_matrix.png
+random_forest_artist_model.joblib
+label_encoder.pkl
