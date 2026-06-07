@@ -7,11 +7,35 @@ Adjust input/output paths as needed for your folder structure.
 
 import os
 import tensorflow as tf
-import tensorflow_addons as tfa
 import numpy as np
 import cv2
 
-tfa.options.disable_custom_kernel()
+# NOTE: tensorflow_addons was deprecated in 2023 and removed.
+# Gaussian blur is now implemented using a manual depthwise convolution below.
+
+
+def gaussian_blur_tf(image: tf.Tensor, kernel_size: int = 7, sigma: float = 1.0) -> tf.Tensor:
+    """
+    Applies Gaussian blur to a single HxWxC image tensor normalised to [-1, 1].
+    Drop-in replacement for tfa.image.gaussian_filter2d.
+    """
+    # Build 2-D Gaussian kernel
+    ax = tf.range(-kernel_size // 2 + 1, kernel_size // 2 + 1, dtype=tf.float32)
+    xx, yy = tf.meshgrid(ax, ax)
+    kernel = tf.exp(-(xx ** 2 + yy ** 2) / (2.0 * sigma ** 2))
+    kernel = kernel / tf.reduce_sum(kernel)  # normalise
+
+    # Shape required for depthwise_conv2d: [H, W, in_channels, channel_multiplier]
+    num_channels = image.shape[-1] or 3
+    kernel = tf.stack([kernel] * num_channels, axis=-1)  # [H, W, C]
+    kernel = tf.expand_dims(kernel, axis=-1)              # [H, W, C, 1]
+
+    # Add batch dim, apply, remove batch dim
+    img_batch = tf.expand_dims(image, 0)                  # [1, H, W, C]
+    blurred = tf.nn.depthwise_conv2d(
+        img_batch, kernel, strides=[1, 1, 1, 1], padding='SAME'
+    )
+    return tf.squeeze(blurred, 0)
 
 INPUT_DIR = "data/GAN-data_processed"
 OUTPUT_DIR = "data/GAN-processed"
@@ -76,7 +100,7 @@ def preprocess_single_image(image_path):
     img = img.convert("RGB")
     img = tf.convert_to_tensor(np.array(img), dtype=tf.float32) / 127.5 - 1.0
 
-    img = tfa.image.gaussian_filter2d(img, filter_shape=(7, 7), sigma=1.0)
+    img = gaussian_blur_tf(img, kernel_size=7, sigma=1.0)
     img = tf.image.adjust_brightness(img, delta=0.05)
 
     img = apply_style_perturbation(img)
