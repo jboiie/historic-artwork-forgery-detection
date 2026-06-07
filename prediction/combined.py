@@ -40,9 +40,10 @@ label_encoder = LabelEncoder()
 df['label'] = label_encoder.fit_transform(df['artist'])
 
 import pickle
-with open("label_encoder.pkl", "wb") as f:
+os.makedirs("models", exist_ok=True)
+with open("models/label_encoder.pkl", "wb") as f:
     pickle.dump(label_encoder, f)
-print("Saved label encoder to 'label_encoder.pkl'")
+print("Saved label encoder to 'models/label_encoder.pkl'")
 
 # ====== DATASET CLASS ======
 class ArtDataset(Dataset):
@@ -150,7 +151,8 @@ for epoch in range(NUM_EPOCHS):
 
     if val_acc > best_val_acc:
         best_val_acc = val_acc
-        torch.save(model.state_dict(), "best_artist_classifier_cnn.pth")
+        os.makedirs("models", exist_ok=True)
+        torch.save(model.state_dict(), "models/best_artist_classifier_cnn.pth")
         print(f"Saved Best Model with Val Acc: {best_val_acc:.4f}")
 
 print(f"Training complete. Best Validation Accuracy: {best_val_acc:.4f}")
